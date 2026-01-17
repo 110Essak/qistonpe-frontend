@@ -1,16 +1,79 @@
-# React + Vite
+# QistonPe Invoice Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern invoice management system for MSMEs built with React and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Setup & Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Installation
+```bash
+npm install
+```
 
-## React Compiler
+### Run Locally
+```bash
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Build for Production
+```bash
+npm run build
+```
 
-## Expanding the ESLint configuration
+## Approach
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Component Structure
+- **Context API** for global state (invoices, theme)
+- **Modular components** (Sidebar, Dashboard, Invoices, Payments, Settings)
+- **Smart/Dumb component pattern** for reusability
+
+### Optimization Techniques Used
+- `useMemo` for expensive calculations (filtering, sorting, summaries)
+- `useCallback` for stable function references
+- Pagination (10 items per page)
+- LocalStorage for persistence
+- Minimal re-renders through proper dependency arrays
+
+### Challenges Faced
+- Status calculation logic with date comparisons
+- Real-time summary updates across filters
+- CSV export with proper formatting
+- Dark mode implementation across all components
+
+## Performance Optimizations
+
+1. **Memoization**: Used `useMemo` for filtered lists, sorted data, and summary calculations
+2. **Callback optimization**: `useCallback` for event handlers to prevent child re-renders
+3. **Pagination**: Implemented 10 items per page to handle large datasets
+4. **Efficient filtering**: Single-pass filtering and sorting operations
+5. **LocalStorage**: Persistent data without backend calls
+
+## Time Breakdown
+
+- Design & Planning: 2 hours
+- Development: 8 hours
+- Testing & Debugging: 2 hours
+- Total: 12 hours
+
+## Features
+
+### Core Features
+- ✅ Invoice list with filtering, sorting, search
+- ✅ Summary cards with real-time calculations
+- ✅ Add/Edit/Delete invoices
+- ✅ Mark as paid functionality
+- ✅ Bulk actions
+- ✅ Export to CSV
+- ✅ Dark mode
+- ✅ Responsive design
+
+### Pages
+- Dashboard (fully functional)
+- Invoices (fully functional)
+- Payments (UI only)
+- Settings (UI only)
+
+## Tech Stack
+- React.js (Vite)
+- Tailwind CSS
+- Recharts
+- LocalStorage
