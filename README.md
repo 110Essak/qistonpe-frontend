@@ -70,7 +70,7 @@ npm run build
 - Dashboard (fully functional)
 - Invoices (fully functional)
 - Payments (UI only)
-- Settings (UI only)
+- Settings (Toggle Working)
 
 ## Tech Stack
 - React.js (Vite)
